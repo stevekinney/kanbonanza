@@ -18,6 +18,11 @@
   &:active {
     background-color: darken($color, 5%);
   }
+  &:disabled {
+    color: $color;
+    border-color: $color;
+    background-color: lighten($color, 10%);
+  }
 }
 
 @mixin box-shadow($color) {

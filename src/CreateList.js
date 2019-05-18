@@ -5,6 +5,15 @@ import './CreateList.scss';
 class CreateList extends Component {
   state = { title: '' };
 
+  get isValid() {
+    const { title } = this.state;
+    return !!title;
+  }
+
+  get isInvalid() {
+    return !this.isValid;
+  }
+
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -35,7 +44,11 @@ class CreateList extends Component {
           placeholder="New List Title"
           value={title}
         />
-        <input className="CreateList-submit" type="submit" />
+        <input
+          className="CreateList-submit"
+          type="submit"
+          disabled={this.isInvalid}
+        />
       </form>
     );
   }

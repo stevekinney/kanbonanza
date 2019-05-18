@@ -13,8 +13,19 @@ class CreateCard extends Component {
     this.setState({ [name]: value });
   };
 
+  get isValid() {
+    const { title, description } = this.state;
+    return title && description;
+  }
+
+  get isInvalid() {
+    return !this.isValid;
+  }
+
   handleSubmit = event => {
     event.preventDefault();
+
+    if (this.isInvalid) return;
 
     const { onCreateCard } = this.props;
 
@@ -49,7 +60,7 @@ class CreateCard extends Component {
           type="text"
           value={description}
         />
-        <input className="CreateCard-submit" type="submit" value="Create New Card" />
+        <input className="CreateCard-submit" type="submit" value="Create New Card" disabled={this.isInvalid} />
       </form>
     );
   }
