@@ -1,0 +1,21 @@
+@import './colors.scss';
+@import './_mixins.scss';
+
+.Card {
+  margin: 0.5em;
+  padding: 1em;
+  background-color: $card-color;
+  border: 1px solid darken($card-color, 20%);
+  h3 {
+    font-size: 1.2em;
+    margin-top: 0;
+  }
+}
+
+.Card-description {
+  margin: 1em 0;
+}
+
+.Card-toggle {
+  @include button-style($card-color);
+}

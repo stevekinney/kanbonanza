@@ -1,0 +1,21 @@
+@import './colors.scss';
+
+.CreateList {
+  width: 100%;
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.CreateList-title, .CreateList-submit {
+  padding: 1em;
+}
+
+.CreateList-title {
+  background-color: $list-color;
+  width: 100%;
+  flex: 5;
+}
+
+.CreateList-submit {
+  flex: 1;
+}

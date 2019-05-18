@@ -1,0 +1,21 @@
+@mixin input-style($color) {
+  background-color: $color;
+  border: 1px solid darken($color, 10%);
+  padding: 1em;
+  width: 100%;
+  margin: 0.5em 0;
+  outline: none;
+  &:focus {
+    background-color: lighten($color, 2%);
+  }
+}
+
+@mixin button-style($color) {
+  @include input-style($color);
+  &:hover {
+    background-color: lighten($color, 5%);
+  }
+  &:active {
+    background-color: darken($color, 5%);
+  }
+}

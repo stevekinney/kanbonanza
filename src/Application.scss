@@ -1,0 +1,10 @@
+@import './colors.scss';
+@import './_mixins.scss';
+
+.Application {
+  margin: 0.5em;
+}
+
+.toggle-options {
+  @include button-style($list-color);
+}

@@ -1,0 +1,47 @@
+@import './colors.scss';
+@import './_mixins.scss';
+
+html, body, * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+body, input {
+  color: $font-color;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+select {
+  padding: 1em;
+  width: 100%;
+  margin: 1em 0;
+  border-radius: 0;
+  color: $font-color;
+}
+
+option {
+  padding: 1em;
+}
+
+input {
+  @include input-style(white);
+}
+
+button, input[type="submit"] {
+  @include button-style($button-color);
+  &.danger {
+    @include button-style($danger-color);
+  }
+}
