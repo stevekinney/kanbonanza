@@ -1,9 +1,13 @@
-@import './colors.scss';
+@import './_colors.scss';
+@import './_mixins.scss';
 
 .CreateList {
   width: 100%;
   display: flex;
   margin-bottom: 1em;
+  background-color: $list-color;
+  padding: 0.5em;
+  @include box-shadow($list-color);
 }
 
 .CreateList-title, .CreateList-submit {
@@ -11,7 +15,7 @@
 }
 
 .CreateList-title {
-  background-color: $list-color;
+  background-color: $card-color;
   width: 100%;
   flex: 5;
 }

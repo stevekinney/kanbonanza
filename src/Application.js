@@ -21,49 +21,49 @@ class Application extends Component {
     this.setState({ lists: [...lists, list] });
   };
 
-  removeList = list => {
+  removeList = targetList => {
     let { lists } = this.state;
 
-    lists = lists.filter(l => l.id !== list.id);
+    lists = lists.filter(list => list.id !== targetList.id);
 
     this.setState({ lists });
   };
 
-  createCard = (list, { title, description }) => {
+  createCard = (targetList, { title, description }) => {
     let { lists } = this.state;
     const card = { id: Date.now().toString(), title, description };
 
-    lists = lists.map(l => {
-      if (l.id === list.id) {
-        return { ...l, cards: [...l.cards, card] };
+    lists = lists.map(list => {
+      if (list.id === targetList.id) {
+        return { ...list, cards: [...list.cards, card] };
       }
-      return l;
-    });
-
-    this.setState({ lists }, (state) => console.log(JSON.stringify(this.state)));
-  };
-
-  removeCard = (list, card) => {
-    let { lists } = this.state;
-    const remainingCards = list.cards.filter(({ id }) => id !== card.id);
-    const updatedList = { ...list, cards: remainingCards };
-
-    lists  = lists.map(l => {
-      return l.id === list.id ? updatedList : l;
+      return list;
     });
 
     this.setState({ lists });
   };
 
-  changeList = (card, newListId) => {
+  removeCard = (targetList, card) => {
+    let { lists } = this.state;
+    const remainingCards = targetList.cards.filter(({ id }) => id !== card.id);
+    const updatedList = { ...targetList, cards: remainingCards };
+
+    lists = lists.map(list => {
+      return list.id === targetList.id ? updatedList : list;
+    });
+
+    this.setState({ lists });
+  };
+
+  changeList = (targetCard, newListId) => {
     let { lists } = this.state;
 
     lists = lists.map(list => {
       let newCards;
       if (list.id === newListId) {
-        newCards = [...list.cards, card];
+        newCards = [...list.cards, targetCard];
       } else {
-        newCards = list.cards.filter(c => c.id !== card.id);
+        newCards = list.cards.filter(card => card.id !== targetCard.id);
       }
       return { ...list, cards: newCards };
     });
