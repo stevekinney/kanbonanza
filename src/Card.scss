@@ -6,6 +6,7 @@
   padding: 1em;
   background-color: $card-color;
   border: 1px solid darken($card-color, 20%);
+  @include box-shadow($card-color);
   h3 {
     font-size: 1.2em;
     margin-top: 0;
