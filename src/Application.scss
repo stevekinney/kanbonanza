@@ -7,4 +7,5 @@
 
 .toggle-options {
   @include button-style($list-color);
+  color: darken($list-color, 50%);
 }

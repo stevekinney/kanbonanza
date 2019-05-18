@@ -19,4 +19,5 @@
 
 .Card-toggle {
   @include button-style($card-color);
+  color: darken($card-color, 50%);
 }
