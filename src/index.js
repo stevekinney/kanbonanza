@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import Application from './Application';
 
+import { UsersProvider } from './UsersContext';
+
 import './index.scss';
 
-ReactDOM.render(<Application />, document.getElementById('root'));
+ReactDOM.render(<UsersProvider><Application /></UsersProvider>, document.getElementById('root'));

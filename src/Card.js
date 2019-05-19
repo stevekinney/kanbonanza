@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import CardAssignment from './CardAssignment';
 
+import { UsersContext } from './UsersContext';
+
 import './Card.scss';
-import WithUsers from './withUsers';
 
 class Card extends Component {
   state = { showOptions: false };
@@ -29,9 +30,9 @@ class Card extends Component {
       <article className="Card">
         <h3>{card.title}</h3>
         <div className="Card-description">{card.description}</div>
-        <WithUsers>
+        <UsersContext.Consumer>
           {({ users }) => <CardAssignment card={card} onAssignCard={onAssignCard} users={users} />}
-        </WithUsers>
+        </UsersContext.Consumer>
         {showOptions && (
           <div className="Card-options">
             <select
