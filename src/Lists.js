@@ -19,7 +19,6 @@ const Lists = ({
           key={list.id}
           list={list}
           lists={lists}
-          users={users}
           onAssignCard={onAssignCard}
           onCreateCard={onCreateCard}
           onListChange={onListChange}

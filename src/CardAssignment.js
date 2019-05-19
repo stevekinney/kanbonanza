@@ -1,4 +1,5 @@
 import React from 'react';
+import withUsers from './withUsers';
 
 const CardAssignment = ({ card, users, onAssignCard = () => {} }) => {
   const assignCard = event => {
@@ -7,6 +8,7 @@ const CardAssignment = ({ card, users, onAssignCard = () => {} }) => {
     onAssignCard(card, userId);
   };
 
+  console.log({ users });
   return (
     <div className="CardAssignment" style={{ fontSize: '0.8em' }}>
       {card.assignedTo ? (
@@ -27,4 +29,4 @@ const CardAssignment = ({ card, users, onAssignCard = () => {} }) => {
   );
 };
 
-export default CardAssignment;
+export default withUsers(CardAssignment);

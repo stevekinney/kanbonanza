@@ -18,7 +18,6 @@ class List extends Component {
     const {
       list,
       lists,
-      users,
       onCreateCard,
       onListChange,
       onRemoveList,
@@ -52,7 +51,6 @@ class List extends Component {
               key={card.id}
               list={list}
               lists={lists}
-              users={users}
               onListChange={onListChange}
               onRemoveCard={onRemoveCard}
               onAssignCard={onAssignCard}

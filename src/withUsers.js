@@ -26,9 +26,12 @@ const withUsers = (WrappedComponent) => {
     };
 
     render() {
+      const { users } = this.state;
+      console.log(WrappedComponent);
+
       return (
         <WrappedComponent
-          users={this.state.users}
+          users={users}
           createUser={this.createUser}
           updateUser={this.updateUser}
           {...this.props}
