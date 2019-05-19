@@ -1,39 +1,26 @@
 import React, { Component } from 'react';
-import { users } from './default-state.json';
+import UserStore from './UserStore';
 
 const withUsers = (WrappedComponent) => {
   return class extends Component {
-    state = { users };
+    state = { users: UserStore.users };
 
-    createUser = user => {
-      const { users } = this.state;
-      this.setState({
-        users: [...users, { ...user, id: Date.now().toString() }]
-      });
-    };
+    componentDidMount() {
+      this.unsubscribe = UserStore.on('change', (users) => this.setState({ users }));
+    }
 
-    updateUser = targetUser => {
-      let { users } = this.state;
-
-      users = users.map(user => {
-        if (user.id === targetUser.id) {
-          return { ...user, name: targetUser.name };
-        }
-        return user;
-      });
-
-      this.setState({ users });
-    };
+    componentWillUnmount() {
+      this.unsubscribe();
+    }
 
     render() {
       const { users } = this.state;
-      console.log(WrappedComponent);
 
       return (
         <WrappedComponent
           users={users}
-          createUser={this.createUser}
-          updateUser={this.updateUser}
+          createUser={UserStore.createUser}
+          updateUser={UserStore.updateUser}
           {...this.props}
         />
       );
