@@ -1,40 +1,28 @@
-import React, { Component, createContext } from 'react';
-import { users } from './default-state';
+import React, { useState, createContext } from 'react';
+import defaultState from './default-state';
 
 export const UsersContext = createContext();
 
-export class UsersProvider extends Component {
-  state = { users };
+export const UsersProvider = (props) => {
+  const [users, setUsers] = useState(defaultState.users);
 
-  createUser = user => {
-    let { users } = this.state;
-
-    users = [...users, { ...user, id: Date.now().toString() }];
-
-    this.setState({ users });
+  const createUser = user => {
+    setUsers([...users, { ...user, id: Date.now().toString() }]);
   };
 
-  updateUser = targetUser => {
-    let { users } = this.state;
-
-    users = users.map(user => {
+  const updateUser = targetUser => {
+    setUsers(users.map(user => {
       if (user.id === targetUser.id) {
         return { ...user, name: targetUser.name };
       }
       return user;
-    });
-
-    this.setState({ users });
+    }));
   };
 
-  render() {
-    const { updateUser, createUser } = this;
-    const { users } = this.state;
+  return (
+    <UsersContext.Provider value={{ users, createUser, updateUser }}>
+      {props.children}
+    </UsersContext.Provider>
+  )
 
-    return (
-      <UsersContext.Provider value={{ users, createUser, updateUser }}>
-        {this.props.children}
-      </UsersContext.Provider>
-    )
-  }
 }
