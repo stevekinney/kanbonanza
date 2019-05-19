@@ -19,7 +19,7 @@ const CardAssignment = ({ card, users, onAssignCard = () => {} }) => {
       >
         <option value="">(Unassigned)</option>
         {users.map(user => (
-          <option value={user.id}>{user.name}</option>
+          <option value={user.id} key={user.id}>{user.name}</option>
         ))}
       </select>
     </div>
