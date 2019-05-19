@@ -73,8 +73,7 @@ class Application extends Component {
   };
 
   assignCard = (targetCard, targetUserId) => {
-    let { lists, users } = this.state;
-    const targetUser = users.find(user => user.id === targetUserId);
+    let { lists } = this.state;
 
     lists = lists.map(list => {
       if (!list.cards.includes(targetCard)) {
@@ -83,8 +82,8 @@ class Application extends Component {
 
       const cards = list.cards.map(card => {
         if (card.id === targetCard.id) {
-          if (!targetUser) return { ...card, assignedTo: '' };
-          return { ...card, assignedTo: { ...targetUser } };
+          if (!targetUserId) return { ...card, assignedTo: '' };
+          return { ...card, assignedTo: targetUserId };
         }
         return card;
       });

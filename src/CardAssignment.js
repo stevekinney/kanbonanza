@@ -4,20 +4,19 @@ import withUsers from './withUsers';
 const CardAssignment = ({ card, users, onAssignCard = () => {} }) => {
   const assignCard = event => {
     const userId = event.target.value;
-    console.log({ userId });
     onAssignCard(card, userId);
   };
 
-  console.log({ users });
+  const user = users.find(user => user.id === card.assignedTo);
   return (
     <div className="CardAssignment" style={{ fontSize: '0.8em' }}>
       {card.assignedTo ? (
-        <p>Card assigned to <strong>{card.assignedTo.name}</strong>.</p>
+        <p>Card assigned to <strong>{user.name}</strong>.</p>
       ) : (
         <p>Card unassigned.</p>
       )}
       <select
-        value={card.assignedTo && card.assignedTo.id}
+        value={card.assignedTo}
         onChange={assignCard}
       >
         <option value="">(Unassigned)</option>
