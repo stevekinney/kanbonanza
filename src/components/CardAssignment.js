@@ -1,10 +1,10 @@
 import React from 'react';
 
-const CardAssignment = ({ card, users, onAssignCard = () => {} }) => {
+const CardAssignment = ({ card, users }) => {
   const assignCard = event => {
     const userId = event.target.value;
-    console.log({ userId });
-    onAssignCard(card, userId);
+    console.log('Assign card', { userId });
+    // Implement card assignment here.
   };
 
   return (

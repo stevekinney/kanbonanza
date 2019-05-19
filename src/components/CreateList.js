@@ -22,11 +22,7 @@ class CreateList extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    const { onCreateList } = this.props;
-
-    if (onCreateList) {
-      onCreateList(this.state);
-    }
+    // Implement the ability to create a list here.
 
     this.setState({ title: '' });
   };

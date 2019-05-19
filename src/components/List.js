@@ -18,23 +18,17 @@ class List extends Component {
     const {
       list,
       lists,
-      users,
-      onCreateCard,
-      onListChange,
-      onRemoveList,
-      onRemoveCard,
-      onAssignCard
+      users
     } = this.props;
     const { showOptions } = this.state;
-    const removeList = () => onRemoveList(list);
 
     return (
       <article className="List">
         <h2>{list.title}</h2>
         {showOptions && (
           <div className="List-options">
-            <CreateCard onCreateCard={card => onCreateCard(list, card)} />
-            <button className="List-remove danger" onClick={removeList}>
+            <CreateCard onCreateCard={card => () => {}} />
+            <button className="List-remove danger" onClick={() => {}}>
               Remove List
             </button>
           </div>
@@ -53,9 +47,6 @@ class List extends Component {
               list={list}
               lists={lists}
               users={users}
-              onListChange={onListChange}
-              onRemoveCard={onRemoveCard}
-              onAssignCard={onAssignCard}
             />
           ))}
         </div>

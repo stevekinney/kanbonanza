@@ -6,11 +6,6 @@ import './Lists.scss';
 const Lists = ({
   lists,
   users,
-  onCreateCard,
-  onListChange,
-  onRemoveList,
-  onRemoveCard,
-  onAssignCard
 }) => {
   return (
     <section className="Lists">
@@ -20,11 +15,6 @@ const Lists = ({
           list={list}
           lists={lists}
           users={users}
-          onAssignCard={onAssignCard}
-          onCreateCard={onCreateCard}
-          onListChange={onListChange}
-          onRemoveList={onRemoveList}
-          onRemoveCard={onRemoveCard}
         />
       ))}
     </section>

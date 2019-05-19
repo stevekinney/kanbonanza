@@ -20,15 +20,14 @@ class Card extends Component {
   };
 
   render() {
-    const { card, lists, list, users, onRemoveCard, onAssignCard } = this.props;
+    const { card, lists, list, users  } = this.props;
     const { showOptions } = this.state;
-    const removeCard = () => onRemoveCard(list, card);
 
     return (
       <article className="Card">
         <h3>{card.title}</h3>
         <div className="Card-description">{card.description}</div>
-        <CardAssignment card={card} users={users} onAssignCard={onAssignCard} />
+        <CardAssignment card={card} users={users} onAssignCard={() => {}} />
         {showOptions && (
           <div className="Card-options">
             <select
@@ -42,7 +41,7 @@ class Card extends Component {
                 </option>
               ))}
             </select>
-            <button onClick={removeCard} className="Card-remove danger">
+            <button onClick={() => {}} className="Card-remove danger">
               Remove Card
             </button>
           </div>

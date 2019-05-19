@@ -5,13 +5,13 @@ import User from './User';
 
 import './Users.scss';
 
-const Users = ({ users, onCreateUser, onUpdateUser }) => {
+const Users = ({ users  }) => {
   return (
     <section className="Users">
       <h2>Users</h2>
-      <CreateUser onCreateUser={onCreateUser} />
+      <CreateUser onCreateUser={() => {}} />
       {users.map(user => (
-        <User key={user.id} user={user} onUpdateUser={onUpdateUser} />
+        <User key={user.id} user={user} onUpdateUser={() => {}} />
       ))}
     </section>
   );
