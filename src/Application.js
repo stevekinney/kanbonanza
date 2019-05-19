@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CreateList from './CreateList';
 import Lists from './Lists';
+import Users from './Users';
 
 import defaultState from './default-state.json';
 
@@ -71,19 +72,42 @@ class Application extends Component {
     return this.setState({ lists });
   };
 
+  createUser = user => {
+    const { users } = this.state;
+    this.setState({
+      users: [...users, { ...user, id: Date.now().toString() }]
+    });
+  };
+
+  updateUser = targetUser => {
+    let { users } = this.state;
+
+    users = users.map(user => {
+      if (user.id === targetUser.id) {
+        return { ...user, name: targetUser.name };
+      }
+      return user;
+    });
+
+    this.setState({ users });
+  };
+
   render() {
-    const { lists } = this.state;
+    const { lists, users } = this.state;
 
     return (
       <main className="Application">
-        <CreateList onCreateList={this.createList} />
-        <Lists
-          lists={lists}
-          onCreateCard={this.createCard}
-          onListChange={this.changeList}
-          onRemoveCard={this.removeCard}
-          onRemoveList={this.removeList}
-        />
+        <Users users={users} onCreateUser={this.createUser} onUpdateUser={this.updateUser} />
+        <section className="list-management">
+          <CreateList onCreateList={this.createList} />
+          <Lists
+            lists={lists}
+            onCreateCard={this.createCard}
+            onListChange={this.changeList}
+            onRemoveCard={this.removeCard}
+            onRemoveList={this.removeList}
+          />
+        </section>
       </main>
     );
   }

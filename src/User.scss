@@ -1,0 +1,16 @@
+@import './_colors.scss';
+
+.User {
+  border: 1px solid $list-color;
+  padding: 0.5em;
+  display: flex;
+  font-size: 0.6em;
+  margin-bottom: 1em;
+}
+
+.User-picture {
+  margin-right: 0.5em;
+  border: 1px solid $list-color;
+  max-height: 100%;
+  max-width: 100%;
+}
