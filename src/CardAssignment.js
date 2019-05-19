@@ -6,15 +6,16 @@ const CardAssignment = ({ card, users, onAssignCard = () => {} }) => {
     onAssignCard(card, userId);
   };
 
+  const user = users.find(user => user.id === card.assignedTo);
   return (
     <div className="CardAssignment" style={{ fontSize: '0.8em' }}>
       {card.assignedTo ? (
-        <p>Card assigned to <strong>{card.assignedTo.name}</strong>.</p>
+        <p>Card assigned to <strong>{user.name}</strong>.</p>
       ) : (
         <p>Card unassigned.</p>
       )}
       <select
-        value={card.assignedTo && card.assignedTo.id}
+        value={card.assignedTo}
         onChange={assignCard}
       >
         <option value="">(Unassigned)</option>
