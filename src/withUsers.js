@@ -1,28 +1,20 @@
 import React, { Component } from 'react';
-import UserStore from './UserStore';
+import { UsersContext } from './UsersContext';
 
 const withUsers = (WrappedComponent) => {
   return class extends Component {
-    state = { users: UserStore.users };
-
-    componentDidMount() {
-      this.unsubscribe = UserStore.on('change', (users) => this.setState({ users }));
-    }
-
-    componentWillUnmount() {
-      this.unsubscribe();
-    }
-
     render() {
-      const { users } = this.state;
-
       return (
-        <WrappedComponent
-          users={users}
-          createUser={UserStore.createUser}
-          updateUser={UserStore.updateUser}
-          {...this.props}
-        />
+        <UsersContext.Consumer>
+          {({ users, createUser, updateUser }) => (
+            <WrappedComponent
+              users={users}
+              createUser={createUser}
+              updateUser={updateUser}
+              {...this.props}
+            />
+          )}
+        </UsersContext.Consumer>
       );
     }
   };
