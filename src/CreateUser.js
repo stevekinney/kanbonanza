@@ -18,6 +18,15 @@ class CreateUser extends Component {
     this.setState({ [name]: value });
   };
 
+  get isValid() {
+    const { name, email } = this.state;
+    return name && email;
+  }
+
+  get isInvalid() {
+    return !this.isValid;
+  }
+
   render() {
     return (
       <form className="CreateUser" onSubmit={this.handleSubmit}>
@@ -29,13 +38,13 @@ class CreateUser extends Component {
           placeholder="Name"
         />
         <input
-          type="text"
+          type="email"
           name="email"
           value={this.state.email}
           onChange={this.handleChange}
           placeholder="email"
         />
-        <input type="submit" value="Create User" />
+        <input type="submit" value="Create User" disabled={this.isInvalid} />
       </form>
     );
   }
