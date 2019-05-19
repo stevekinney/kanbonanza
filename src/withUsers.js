@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import UserStore from './UserStore';
 
+const getDisplayName = (WrappedComponent) => {
+  return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+}
+
 const withUsers = (WrappedComponent) => {
-  return class extends Component {
+  class WithUsers extends Component {
     state = { users: UserStore.users };
 
     componentDidMount() {
@@ -26,6 +30,8 @@ const withUsers = (WrappedComponent) => {
       );
     }
   };
+  WithUsers.displayName = `WithUsers(${getDisplayName(WrappedComponent)})`;
+  return WithUsers;
 }
 
 export default withUsers;

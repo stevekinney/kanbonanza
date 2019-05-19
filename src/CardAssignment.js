@@ -4,7 +4,6 @@ import withUsers from './withUsers';
 const CardAssignment = ({ card, users, onAssignCard = () => {} }) => {
   const assignCard = event => {
     const userId = event.target.value;
-    console.log({ userId });
     onAssignCard(card, userId);
   };
 
