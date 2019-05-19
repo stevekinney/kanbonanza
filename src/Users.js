@@ -2,7 +2,6 @@ import React from 'react';
 
 import CreateUser from './CreateUser';
 import User from './User';
-import withUsers from './withUsers';
 
 import './Users.scss';
 
@@ -18,4 +17,4 @@ const Users = ({ users, createUser, updateUser }) => {
   );
 };
 
-export default withUsers(Users);
+export default Users;

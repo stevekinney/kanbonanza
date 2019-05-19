@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { users } from './default-state.json';
 
-const withUsers = (WrappedComponent) => {
-  return class extends Component {
+class WithUsers extends Component {
     state = { users };
 
     createUser = user => {
@@ -26,19 +25,15 @@ const withUsers = (WrappedComponent) => {
     };
 
     render() {
+      const { createUser, updateUser } = this;
       const { users } = this.state;
-      console.log(WrappedComponent);
 
       return (
-        <WrappedComponent
-          users={users}
-          createUser={this.createUser}
-          updateUser={this.updateUser}
-          {...this.props}
-        />
+        <div>
+          {this.props.children({ users, createUser, updateUser })}
+        </div>
       );
     }
-  };
-}
+  }
 
-export default withUsers;
+export default WithUsers;

@@ -3,6 +3,8 @@ import CreateList from './CreateList';
 import Lists from './Lists';
 import Users from './Users';
 
+import WithUsers from './withUsers';
+
 import defaultState from './default-state.json';
 
 import './Application.scss';
@@ -100,7 +102,9 @@ class Application extends Component {
 
     return (
       <main className="Application">
-        <Users />
+        <WithUsers>
+          {({ users, createUser, updateUser }) => <Users users={users} createUser={createUser} updateUser={updateUser} />}
+        </WithUsers>
         <section className="list-management">
           <CreateList onCreateList={this.createList} />
           <Lists
