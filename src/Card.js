@@ -30,9 +30,7 @@ class Card extends Component {
       <article className="Card">
         <h3>{card.title}</h3>
         <div className="Card-description">{card.description}</div>
-        <UsersContext.Consumer>
-          {({ users }) => <CardAssignment card={card} onAssignCard={onAssignCard} users={users} />}
-        </UsersContext.Consumer>
+        <CardAssignment card={card} onAssignCard={onAssignCard} />
         {showOptions && (
           <div className="Card-options">
             <select

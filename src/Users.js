@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import CreateUser from './CreateUser';
 import User from './User';
 
+import { UsersContext } from './UsersContext';
+
 import './Users.scss';
 
-const Users = ({ users, createUser, updateUser }) => {
+const Users = () => {
+  const { users, createUser, updateUser } = useContext(UsersContext);
+
   return (
     <section className="Users">
       <h2>Users</h2>

@@ -101,9 +101,7 @@ class Application extends Component {
 
     return (
       <main className="Application">
-        <UsersContext.Consumer>
-          {({ users, createUser, updateUser }) => <Users users={users} createUser={createUser} updateUser={updateUser} />}
-        </UsersContext.Consumer>
+        <Users />
         <section className="list-management">
           <CreateList onCreateList={this.createList} />
           <Lists

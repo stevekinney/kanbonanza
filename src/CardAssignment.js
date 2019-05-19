@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UsersContext } from './UsersContext';
 
-const CardAssignment = ({ card, users, onAssignCard = () => {} }) => {
+const CardAssignment = ({ card, onAssignCard = () => {} }) => {
+  const { users } = useContext(UsersContext);
+
   const assignCard = event => {
     const userId = event.target.value;
     onAssignCard(card, userId);
