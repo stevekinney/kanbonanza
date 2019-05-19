@@ -3,7 +3,7 @@ import CreateList from './CreateList';
 import Lists from './Lists';
 import Users from './Users';
 
-import defaultState from './default-state.json';
+import defaultState from '../default-state.json';
 
 import './Application.scss';
 
