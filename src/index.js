@@ -1,10 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Application from './components/Application';
+import ApplicationContainer from './containers/ApplicationContainer';
 
-import { lists, users } from './default-state';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
+import rootReducer from './reducers';
 
 import './index.scss';
 
-ReactDOM.render(<Application lists={lists} users={users} />, document.getElementById('root'));
+const store = createStore(rootReducer);
+
+ReactDOM.render(<Provider store={store}><ApplicationContainer /></Provider>, document.getElementById('root'));
