@@ -92,16 +92,45 @@ class Application extends Component {
     this.setState({ users });
   };
 
+  assignCard = (targetCard, targetUserId) => {
+    let { lists, users } = this.state;
+    const targetUser = users.find(user => user.id === targetUserId);
+
+    lists = lists.map(list => {
+      if (!list.cards.includes(targetCard)) {
+        return list;
+      }
+
+      const cards = list.cards.map(card => {
+        if (card.id === targetCard.id) {
+          if (!targetUser) return { ...card, assignedTo: '' };
+          return { ...card, assignedTo: { ...targetUser } };
+        }
+        return card;
+      });
+
+      return { ...list, cards };
+    });
+
+    this.setState({ lists });
+  };
+
   render() {
     const { lists, users } = this.state;
 
     return (
       <main className="Application">
-        <Users users={users} onCreateUser={this.createUser} onUpdateUser={this.updateUser} />
+        <Users
+          users={users}
+          onCreateUser={this.createUser}
+          onUpdateUser={this.updateUser}
+        />
         <section className="list-management">
           <CreateList onCreateList={this.createList} />
           <Lists
             lists={lists}
+            users={users}
+            onAssignCard={this.assignCard}
             onCreateCard={this.createCard}
             onListChange={this.changeList}
             onRemoveCard={this.removeCard}

@@ -3,7 +3,15 @@ import List from './List';
 
 import './Lists.scss';
 
-const Lists = ({ lists, onCreateCard, onListChange, onRemoveList, onRemoveCard }) => {
+const Lists = ({
+  lists,
+  users,
+  onCreateCard,
+  onListChange,
+  onRemoveList,
+  onRemoveCard,
+  onAssignCard
+}) => {
   return (
     <section className="Lists">
       {lists.map(list => (
@@ -11,6 +19,8 @@ const Lists = ({ lists, onCreateCard, onListChange, onRemoveList, onRemoveCard }
           key={list.id}
           list={list}
           lists={lists}
+          users={users}
+          onAssignCard={onAssignCard}
           onCreateCard={onCreateCard}
           onListChange={onListChange}
           onRemoveList={onRemoveList}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CardAssignment from './CardAssignment';
 
 import './Card.scss';
 
@@ -19,7 +20,7 @@ class Card extends Component {
   };
 
   render() {
-    const { card, lists, list, onRemoveCard } = this.props;
+    const { card, lists, list, users, onRemoveCard, onAssignCard } = this.props;
     const { showOptions } = this.state;
     const removeCard = () => onRemoveCard(list, card);
 
@@ -27,6 +28,7 @@ class Card extends Component {
       <article className="Card">
         <h3>{card.title}</h3>
         <div className="Card-description">{card.description}</div>
+        <CardAssignment card={card} users={users} onAssignCard={onAssignCard} />
         {showOptions && (
           <div className="Card-options">
             <select

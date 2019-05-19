@@ -18,10 +18,12 @@ class List extends Component {
     const {
       list,
       lists,
+      users,
       onCreateCard,
       onListChange,
       onRemoveList,
-      onRemoveCard
+      onRemoveCard,
+      onAssignCard
     } = this.props;
     const { showOptions } = this.state;
     const removeList = () => onRemoveList(list);
@@ -50,8 +52,10 @@ class List extends Component {
               key={card.id}
               list={list}
               lists={lists}
+              users={users}
               onListChange={onListChange}
               onRemoveCard={onRemoveCard}
+              onAssignCard={onAssignCard}
             />
           ))}
         </div>
