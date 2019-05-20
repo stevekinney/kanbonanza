@@ -1,5 +1,6 @@
 export const LIST_CREATE = 'LIST_CREATE';
 export const CARD_CREATE = 'CARD_CREATE';
+export const CARD_REMOVE = 'CARD_REMOVE';
 
 export const createList = (data) => {
   return {
@@ -26,3 +27,11 @@ export const createCard = (listId, data) => {
     }
   }
 }
+
+export const removeCard = (listId, cardId) => {
+  console.log('action creator')
+  return {
+    type: CARD_REMOVE,
+    payload: { listId, cardId }
+  };
+};

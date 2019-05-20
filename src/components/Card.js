@@ -20,8 +20,10 @@ class Card extends Component {
   };
 
   render() {
-    const { card, lists, list, users  } = this.props;
+    const { card, lists, list, users, removeCard  } = this.props;
     const { showOptions } = this.state;
+
+    console.log({ removeCard });
 
     return (
       <article className="Card">
@@ -41,7 +43,7 @@ class Card extends Component {
                 </option>
               ))}
             </select>
-            <button onClick={() => {}} className="Card-remove danger">
+            <button onClick={removeCard} className="Card-remove danger">
               Remove Card
             </button>
           </div>

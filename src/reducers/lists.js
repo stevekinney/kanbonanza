@@ -1,6 +1,6 @@
 import { lists } from '../default-state';
 
-import { LIST_CREATE, CARD_CREATE } from '../actions/list';
+import { LIST_CREATE, CARD_CREATE, CARD_REMOVE } from '../actions/list';
 
 const listsReducer = (state = lists, action)=> {
 
@@ -11,9 +11,16 @@ const listsReducer = (state = lists, action)=> {
   }
 
   if (action.type === CARD_CREATE) {
-    return lists.map(list => {
+    return state.map(list => {
       if (list.id !== action.payload.listId) return list;
       return { ...list, cards: [...list.cards, action.payload] };
+    });
+  }
+
+  if (action.type === CARD_REMOVE) {
+    return state.map(list => {
+      if (list.id !== action.payload.listId) return list;
+      return { ...list, cards: [...list.cards.filter(card => card.id !== action.payload.cardId)] };
     });
   }
 

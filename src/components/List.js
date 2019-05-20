@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import CreateCardContainer from '../containers/CreateCardContainer';
-import Card from './Card';
 
 import './List.scss';
+import CardContainer from '../containers/CardContainer';
 
 
 class List extends Component {
@@ -42,7 +42,7 @@ class List extends Component {
         </button>
         <div>
           {list.cards.map(card => (
-            <Card
+            <CardContainer
               card={card}
               key={card.id}
               list={list}
