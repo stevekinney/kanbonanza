@@ -1,5 +1,5 @@
 import React from 'react';
-import List from './List';
+import ListContainer from '../containers/ListContainer';
 
 import './Lists.scss';
 
@@ -10,7 +10,7 @@ const Lists = ({
   return (
     <section className="Lists">
       {lists.map(list => (
-        <List
+        <ListContainer
           key={list.id}
           list={list}
           lists={lists}

@@ -1,6 +1,6 @@
 import { lists } from '../default-state';
 
-import { LIST_CREATE, CARD_CREATE, CARD_REMOVE } from '../actions/list';
+import { LIST_CREATE, CARD_CREATE, CARD_REMOVE, LIST_REMOVE } from '../actions/list';
 
 const listsReducer = (state = lists, action)=> {
 
@@ -8,6 +8,10 @@ const listsReducer = (state = lists, action)=> {
 
   if (action.type === LIST_CREATE) {
     return [...state, action.payload ];
+  }
+
+  if (action.type === LIST_REMOVE) {
+    return state.filter(list => list.id !== action.payload.listId);
   }
 
   if (action.type === CARD_CREATE) {

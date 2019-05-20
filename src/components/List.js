@@ -15,6 +15,10 @@ class List extends Component {
     });
   };
 
+  removeList = () => {
+    this.props.removeList(this.props.list.id);
+  };
+
   render() {
     const {
       list,
@@ -29,7 +33,7 @@ class List extends Component {
         {showOptions && (
           <div className="List-options">
             <CreateCardContainer listId={list.id} />
-            <button className="List-remove danger" onClick={() => {}}>
+            <button className="List-remove danger" onClick={this.removeList}>
               Remove List
             </button>
           </div>

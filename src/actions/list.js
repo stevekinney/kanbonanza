@@ -1,4 +1,5 @@
 export const LIST_CREATE = 'LIST_CREATE';
+export const LIST_REMOVE = 'LIST_REMOVE';
 export const CARD_CREATE = 'CARD_CREATE';
 export const CARD_REMOVE = 'CARD_REMOVE';
 
@@ -11,6 +12,13 @@ export const createList = (data) => {
       title: '',
       ...data
     }
+  };
+};
+
+export const removeList = (listId) => {
+  return {
+    type: LIST_REMOVE,
+    payload: { listId }
   };
 };
 
