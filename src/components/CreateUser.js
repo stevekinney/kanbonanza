@@ -6,7 +6,7 @@ class CreateUser extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    // Implement the ability to create a user here.
+    this.props.createUser(this.state);
 
     this.setState({ name: '', email: '' });
   };

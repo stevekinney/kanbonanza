@@ -4,7 +4,7 @@ export const createList = (data) => {
   return {
     type: LIST_CREATE,
     payload: {
-      id: Date.now(),
+      id: Date.now().toString(),
       cards: [],
       title: '',
       ...data
