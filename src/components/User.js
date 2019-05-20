@@ -17,7 +17,6 @@ class User extends Component {
 
   render() {
     const { user } = this.props;
-    console.log({user});
     const profileImage = createProfileImageUrl(user);
 
     return (

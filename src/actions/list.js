@@ -37,7 +37,6 @@ export const createCard = (listId, data) => {
 }
 
 export const removeCard = (listId, cardId) => {
-  console.log('action creator')
   return {
     type: CARD_REMOVE,
     payload: { listId, cardId }

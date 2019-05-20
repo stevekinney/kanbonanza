@@ -8,11 +8,17 @@
   margin-bottom: 1em;
   width: 100%;
   overflow-y: scroll;
+  img {
+    max-height: 100%;
+    max-width: 100%;
+  }
 }
 
 .User-picture {
   margin-right: 0.5em;
   border: 1px solid $list-color;
-  max-height: 100%;
-  max-width: 100%;
+  img {
+    max-height: 100%;
+    max-width: 100%;
+  }
 }

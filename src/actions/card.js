@@ -2,7 +2,6 @@ export const CARD_ASSIGN = 'CARD_ASSIGN';
 export const CARD_MOVE_TO_LIST = 'CARD_MOVE_TO_LIST';
 
 export const assignCardToUser = (cardId, userId) => {
-  console.log('assignCardToUser');
   return {
     type: CARD_ASSIGN,
     payload: {

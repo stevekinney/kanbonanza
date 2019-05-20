@@ -3,7 +3,6 @@ import React from 'react';
 const CardAssignment = ({ card, users, user, assignCardToUser }) => {
   const handleChange = event => {
     const userId = event.target.value;
-    console.log('change', userId, card.id, card);
 
     if (assignCardToUser) assignCardToUser(card.id, userId);
   };

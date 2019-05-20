@@ -3,7 +3,7 @@ import omit from 'lodash/omit';
 import { cards } from '../normalized-state';
 import { CARD_CREATE, CARD_REMOVE } from '../actions/list';
 import { addEntity } from './_utilities';
-import { CARD_ASSIGN, CARD_MOVE_TO_LIST } from '../actions/card';
+import { CARD_ASSIGN } from '../actions/card';
 
 const cardsReducer = (state = cards, action) => {
   if (action.type === CARD_CREATE) {
@@ -27,8 +27,6 @@ const cardsReducer = (state = cards, action) => {
       ...state,
       entities: { ...state.entities, [action.payload.cardId]: updatedCard },
     }
-
-    console.log(action, state, newState);
 
     return newState;
   }

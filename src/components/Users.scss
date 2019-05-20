@@ -2,19 +2,20 @@
 @import "./_colors.scss";
 
 .Users {
-  width: 300px;
-  height: 100%;
   background-color: $card-color;
   border: 1px solid darken($card-color, 10%);
+  height: 100%;
   margin-right: 1em;
+  min-width: 300px;
   padding: 1em;
+  width: 300px;
   @include box-shadow($card-color);
   h2 {
-    color: darken($card-color, 70%);
-    margin-top: 0;
-    text-align: center;
-    display: block;
     border-bottom: 5px solid darken($card-color, 10%);;
+    color: darken($card-color, 70%);
+    display: block;
+    margin-top: 0;
     padding-bottom: 0.5em;
+    text-align: center;
   }
 }

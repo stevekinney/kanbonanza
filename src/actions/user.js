@@ -14,7 +14,6 @@ export const createUser = (data) => {
 };
 
 export const updateUser = (id, name) => {
-  console.log({ id, name });
   return {
     type: USER_UPDATE,
     payload: {
