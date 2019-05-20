@@ -1,13 +1,12 @@
 import { connect } from 'react-redux';
 import CreateList from '../components/CreateList';
 
+import { createList } from '../actions/list';
+
 const mapDispatchToProps = (dispatch) => {
   return {
-    createList({ title }) {
-      dispatch({
-        type: 'LIST_CREATE',
-        payload: { title }
-      });
+    createList(data) {
+      dispatch(createList(data));
     }
   }
 };
