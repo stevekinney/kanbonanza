@@ -1,4 +1,5 @@
 export const LIST_CREATE = 'LIST_CREATE';
+export const CARD_CREATE = 'CARD_CREATE';
 
 export const createList = (data) => {
   return {
@@ -11,3 +12,17 @@ export const createList = (data) => {
     }
   };
 };
+
+export const createCard = (listId, data) => {
+  return {
+    type: CARD_CREATE,
+    payload: {
+      listId,
+      id: Date.now().toString(),
+      title: '',
+      description: '',
+      assignedTo: '',
+      ...data
+    }
+  }
+}

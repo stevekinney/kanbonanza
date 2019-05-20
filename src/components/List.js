@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
-import CreateCard from './CreateCard';
+import CreateCardContainer from '../containers/CreateCardContainer';
 import Card from './Card';
 
 import './List.scss';
+
 
 class List extends Component {
   state = { showOptions: false };
@@ -27,7 +28,7 @@ class List extends Component {
         <h2>{list.title}</h2>
         {showOptions && (
           <div className="List-options">
-            <CreateCard onCreateCard={card => () => {}} />
+            <CreateCardContainer listId={list.id} />
             <button className="List-remove danger" onClick={() => {}}>
               Remove List
             </button>

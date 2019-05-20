@@ -27,7 +27,7 @@ class CreateCard extends Component {
 
     if (this.isInvalid) return;
 
-    // Implement the ability to create a card here.
+    this.props.createCard(this.state);
 
     this.setState({
       title: '',
