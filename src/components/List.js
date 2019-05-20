@@ -22,8 +22,6 @@ class List extends Component {
   render() {
     const {
       list,
-      lists,
-      users
     } = this.props;
     const { showOptions } = this.state;
 
@@ -45,13 +43,11 @@ class List extends Component {
           Toggle Options
         </button>
         <div>
-          {list.cards.map(card => (
+          {list.cards.map(cardId => (
             <CardContainer
-              card={card}
-              key={card.id}
-              list={list}
-              lists={lists}
-              users={users}
+              cardId={cardId}
+              listId={list.id}
+              key={cardId}
             />
           ))}
         </div>

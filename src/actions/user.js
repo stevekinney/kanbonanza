@@ -1,4 +1,5 @@
 export const USER_CREATE = 'USER_CREATE';
+export const USER_UPDATE = 'USER_UPDATE';
 
 export const createUser = (data) => {
   return {
@@ -11,3 +12,14 @@ export const createUser = (data) => {
     }
   };
 };
+
+export const updateUser = (id, name) => {
+  console.log({ id, name });
+  return {
+    type: USER_UPDATE,
+    payload: {
+      id,
+      name
+    }
+  }
+}

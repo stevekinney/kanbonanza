@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ApplicationContainer from './containers/ApplicationContainer';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -9,7 +8,8 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducers';
 
 import './index.scss';
+import Application from './components/Application';
 
 const store = createStore(rootReducer);
 
-ReactDOM.render(<Provider store={store}><ApplicationContainer /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><Application /></Provider>, document.getElementById('root'));

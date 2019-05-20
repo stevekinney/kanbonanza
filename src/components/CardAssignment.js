@@ -1,22 +1,23 @@
 import React from 'react';
 
-const CardAssignment = ({ card, users }) => {
-  const assignCard = event => {
+const CardAssignment = ({ card, users, user, assignCardToUser }) => {
+  const handleChange = event => {
     const userId = event.target.value;
-    console.log('Assign card', { userId });
-    // Implement card assignment here.
+    console.log('change', userId, card.id, card);
+
+    if (assignCardToUser) assignCardToUser(card.id, userId);
   };
 
   return (
     <div className="CardAssignment" style={{ fontSize: '0.8em' }}>
       {card.assignedTo ? (
-        <p>Card assigned to <strong>{card.assignedTo.name}</strong>.</p>
+        <p>Card assigned to <strong>{user.name}</strong>.</p>
       ) : (
         <p>Card unassigned.</p>
       )}
       <select
-        value={card.assignedTo && card.assignedTo.id}
-        onChange={assignCard}
+        value={card.assignedTo}
+        onChange={handleChange}
       >
         <option value="">(Unassigned)</option>
         {users.map(user => (

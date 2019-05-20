@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import CardAssignment from './CardAssignment';
+import CardAssignmentContainer from '../containers/CardAssignmentContainer';
 
 import './Card.scss';
+import CardMoveContainer from '../containers/CardMoveContainer';
 
 class Card extends Component {
   state = { showOptions: false };
@@ -20,29 +21,17 @@ class Card extends Component {
   };
 
   render() {
-    const { card, lists, list, users, removeCard  } = this.props;
+    const { card, listId, removeCard  } = this.props;
     const { showOptions } = this.state;
-
-    console.log({ removeCard });
 
     return (
       <article className="Card">
         <h3>{card.title}</h3>
         <div className="Card-description">{card.description}</div>
-        <CardAssignment card={card} users={users} onAssignCard={() => {}} />
+        <CardAssignmentContainer cardId={card.id} />
         {showOptions && (
           <div className="Card-options">
-            <select
-              className="Card-move"
-              onChange={this.handleChange}
-              value={list.id}
-            >
-              {lists.map(list => (
-                <option value={list.id} key={list.id}>
-                  {list.title}
-                </option>
-              ))}
-            </select>
+            <CardMoveContainer cardId={card.id} listId={listId} />
             <button onClick={removeCard} className="Card-remove danger">
               Remove Card
             </button>

@@ -9,12 +9,10 @@ const Lists = ({
 }) => {
   return (
     <section className="Lists">
-      {lists.map(list => (
+      {lists.map(listId => (
         <ListContainer
-          key={list.id}
-          list={list}
-          lists={lists}
-          users={users}
+          key={listId}
+          listId={listId}
         />
       ))}
     </section>

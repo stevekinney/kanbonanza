@@ -1,28 +1,19 @@
 import React, { Component } from 'react';
 
-import Lists from './Lists';
-import Users from './Users';
-
+import CreateListContainer from '../containers/CreateListContainer';
+import UsersContainer from '../containers/UsersContainer';
+import ListsContainer from '../containers/ListsContainer';
 
 import './Application.scss';
-import CreateListContainer from '../containers/CreateListContainer';
 
 class Application extends Component {
   render() {
-    const { lists, users } = this.props;
-
     return (
       <main className="Application">
-        <Users
-          users={users}
-          onCreateUser={this.createUser}
-        />
+        <UsersContainer />
         <section className="list-management">
           <CreateListContainer />
-          <Lists
-            lists={lists}
-            users={users}
-          />
+          <ListsContainer />
         </section>
       </main>
     );

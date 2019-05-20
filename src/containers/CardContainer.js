@@ -3,12 +3,16 @@ import { connect } from 'react-redux';
 import Card from '../components/Card';
 import { removeCard } from '../actions/list';
 
+const mapStateToProps = (state, ownProps) => {
+  return { card: state.cards.entities[ownProps.cardId] }
+}
+
 const mapDispatchToProps = (dispatch, ownProps) => {
   return ({
     removeCard() {
-      dispatch(removeCard(ownProps.list.id, ownProps.card.id))
+      dispatch(removeCard(ownProps.listId, ownProps.cardId))
     }
   })
 }
 
-export default connect(null, mapDispatchToProps)(Card);
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
