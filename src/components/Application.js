@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CreateList from './CreateList';
+
 import Lists from './Lists';
 import Users from './Users';
 
