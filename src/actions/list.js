@@ -4,13 +4,17 @@ export const CARD_CREATE = 'CARD_CREATE';
 export const CARD_REMOVE = 'CARD_REMOVE';
 
 export const createList = (data) => {
+  const listId = Date.now().toString();
   return {
     type: LIST_CREATE,
     payload: {
-      id: Date.now().toString(),
-      cards: [],
-      title: '',
-      ...data,
+      listId,
+      list: {
+        id: listId,
+        cards: [],
+        title: '',
+        ...data,
+      },
     },
   };
 };
@@ -23,15 +27,19 @@ export const removeList = (listId) => {
 };
 
 export const createCard = (listId, data) => {
+  const cardId = Date.now().toString();
   return {
     type: CARD_CREATE,
     payload: {
       listId,
-      id: Date.now().toString(),
-      title: '',
-      description: '',
-      assignedTo: '',
-      ...data,
+      cardId,
+      card: {
+        id: cardId,
+        title: '',
+        description: '',
+        assignedTo: '',
+        ...data,
+      },
     },
   };
 };

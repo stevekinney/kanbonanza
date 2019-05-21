@@ -6,12 +6,21 @@ import {
   CARD_REMOVE,
   LIST_REMOVE,
 } from '../actions/list';
-import { addEntity, removeEntity } from './_utilities';
+
+import {
+  addEntity,
+  removeEntity,
+  addChildId,
+  setPropertyOnEntity,
+  removeId,
+  moveIdBetweenEntities,
+} from './_utilities';
+
 import { CARD_MOVE_TO_LIST } from '../actions/card';
 
 const listsReducer = (state = lists, action) => {
   if (action.type === LIST_CREATE) {
-    return addEntity(state, action.payload);
+    return addEntity(state, action.payload.list);
   }
 
   if (action.type === LIST_REMOVE) {
@@ -19,50 +28,24 @@ const listsReducer = (state = lists, action) => {
   }
 
   if (action.type === CARD_CREATE) {
-    const { listId } = action.payload;
-
-    const updatedList = { ...state.entities[listId] };
-
-    updatedList.cards = [...updatedList.cards, action.payload.id];
-
-    return {
-      ...state,
-      entities: { ...state.entities, [listId]: updatedList },
-    };
+    const { listId, cardId } = action.payload;
+    return addChildId(state, listId, 'cards', cardId);
   }
 
   if (action.type === CARD_REMOVE) {
     const { listId, cardId } = action.payload;
-
-    const updatedList = { ...state.entities[listId] };
-
-    updatedList.cards = updatedList.cards.filter((id) => id !== cardId);
-
-    const newState = {
-      ...state,
-      entities: { ...state.entities, [listId]: updatedList },
-    };
-
-    return newState;
+    const cards = removeId(state.entities[listId].cards, cardId);
+    return setPropertyOnEntity(state, listId, 'cards', cards);
   }
 
   if (action.type === CARD_MOVE_TO_LIST) {
     const { cardId, originListId, destinationListId } = action.payload;
-    const originList = { ...state.entities[originListId] };
-    const destinationList = { ...state.entities[destinationListId] };
-    originList.cards = originList.cards.filter((id) => id !== cardId);
-    destinationList.cards = destinationList.cards.concat(cardId);
-
-    const newState = {
-      ...state,
-      entities: {
-        ...state.entities,
-        [originListId]: originList,
-        [destinationListId]: destinationList,
-      },
-    };
-
-    return newState;
+    return moveIdBetweenEntities(
+      state,
+      originListId,
+      destinationListId,
+      cardId,
+    );
   }
 
   return state;
