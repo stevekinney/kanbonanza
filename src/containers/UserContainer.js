@@ -7,11 +7,14 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return ({
+  return {
     updateUser(name) {
-      dispatch(updateUser(ownProps.userId, name))
-    }
-  })
-}
+      dispatch(updateUser(ownProps.userId, name));
+    },
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(User);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(User);

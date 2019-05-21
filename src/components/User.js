@@ -9,7 +9,7 @@ const createProfileImageUrl = ({ email }) => {
 };
 
 class User extends Component {
-  handleChange = event => {
+  handleChange = (event) => {
     const { updateUser } = this.props;
     // Implement the ability to change a user here.
     if (updateUser) updateUser(event.target.value);

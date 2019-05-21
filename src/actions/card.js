@@ -7,9 +7,9 @@ export const assignCardToUser = (cardId, userId) => {
     payload: {
       userId,
       cardId,
-    }
-  }
-}
+    },
+  };
+};
 
 export const moveCardToList = (cardId, originListId, destinationListId) => {
   return {
@@ -18,6 +18,6 @@ export const moveCardToList = (cardId, originListId, destinationListId) => {
       cardId,
       originListId,
       destinationListId,
-    }
-  }
-}
+    },
+  };
+};

@@ -7,5 +7,5 @@ import cards from './cards';
 export default combineReducers({
   lists,
   users,
-  cards
+  cards,
 });

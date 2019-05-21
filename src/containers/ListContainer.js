@@ -8,6 +8,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = {
   removeList,
-}
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(List);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(List);

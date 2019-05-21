@@ -8,8 +8,8 @@ export const createUser = (data) => {
       id: Date.now().toString(),
       name: '',
       email: '',
-      ...data
-    }
+      ...data,
+    },
   };
 };
 
@@ -18,7 +18,7 @@ export const updateUser = (id, name) => {
     type: USER_UPDATE,
     payload: {
       id,
-      name
-    }
-  }
-}
+      name,
+    },
+  };
+};

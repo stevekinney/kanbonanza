@@ -4,11 +4,14 @@ import CreateCard from '../components/CreateCard';
 import { createCard } from '../actions/list';
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return ({
+  return {
     createCard(data) {
       dispatch(createCard(ownProps.listId, data));
-    }
-  });
+    },
+  };
 };
 
-export default connect(null, mapDispatchToProps)(CreateCard);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(CreateCard);

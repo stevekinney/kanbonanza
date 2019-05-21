@@ -8,12 +8,12 @@ class Card extends Component {
   state = { showOptions: false };
 
   toggleOptions = () => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return { ...prevState, showOptions: !prevState.showOptions };
     });
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const newListId = event.target.value;
     const { card } = this.props;
 
@@ -21,7 +21,7 @@ class Card extends Component {
   };
 
   render() {
-    const { card, listId, removeCard  } = this.props;
+    const { card, listId, removeCard } = this.props;
     const { showOptions } = this.state;
 
     return (
@@ -37,10 +37,7 @@ class Card extends Component {
             </button>
           </div>
         )}
-        <button
-          className="Card-toggle"
-          onClick={this.toggleOptions}
-        >
+        <button className="Card-toggle" onClick={this.toggleOptions}>
           Toggle Options
         </button>
       </article>

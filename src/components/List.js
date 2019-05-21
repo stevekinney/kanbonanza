@@ -5,12 +5,11 @@ import CreateCardContainer from '../containers/CreateCardContainer';
 import './List.scss';
 import CardContainer from '../containers/CardContainer';
 
-
 class List extends Component {
   state = { showOptions: false };
 
   toggleOptions = () => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return { ...prevState, showOptions: !prevState.showOptions };
     });
   };
@@ -20,9 +19,7 @@ class List extends Component {
   };
 
   render() {
-    const {
-      list,
-    } = this.props;
+    const { list } = this.props;
     const { showOptions } = this.state;
 
     return (
@@ -43,12 +40,8 @@ class List extends Component {
           Toggle Options
         </button>
         <div>
-          {list.cards.map(cardId => (
-            <CardContainer
-              cardId={cardId}
-              listId={list.id}
-              key={cardId}
-            />
+          {list.cards.map((cardId) => (
+            <CardContainer cardId={cardId} listId={list.id} key={cardId} />
           ))}
         </div>
       </article>

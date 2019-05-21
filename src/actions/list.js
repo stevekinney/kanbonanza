@@ -10,15 +10,15 @@ export const createList = (data) => {
       id: Date.now().toString(),
       cards: [],
       title: '',
-      ...data
-    }
+      ...data,
+    },
   };
 };
 
 export const removeList = (listId) => {
   return {
     type: LIST_REMOVE,
-    payload: { listId }
+    payload: { listId },
   };
 };
 
@@ -31,14 +31,14 @@ export const createCard = (listId, data) => {
       title: '',
       description: '',
       assignedTo: '',
-      ...data
-    }
-  }
-}
+      ...data,
+    },
+  };
+};
 
 export const removeCard = (listId, cardId) => {
   return {
     type: CARD_REMOVE,
-    payload: { listId, cardId }
+    payload: { listId, cardId },
   };
 };

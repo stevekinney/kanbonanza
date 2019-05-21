@@ -13,7 +13,7 @@ const cardsReducer = (state = cards, action) => {
   if (action.type === CARD_REMOVE) {
     const newState = {
       entities: omit(state.entities, action.payload.cardId),
-      ids: state.ids.filter(id => id !== action.payload.cardId),
+      ids: state.ids.filter((id) => id !== action.payload.cardId),
     };
 
     return newState;
@@ -26,12 +26,12 @@ const cardsReducer = (state = cards, action) => {
     const newState = {
       ...state,
       entities: { ...state.entities, [action.payload.cardId]: updatedCard },
-    }
+    };
 
     return newState;
   }
 
   return state;
-}
+};
 
 export default cardsReducer;

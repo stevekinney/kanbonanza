@@ -4,18 +4,22 @@ import CardMove from '../components/CardMove';
 
 const mapStateToProps = (state) => {
   return {
-    lists: Object.values(state.lists.entities)
-  }
-}
+    lists: Object.values(state.lists.entities),
+  };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     moveCardToList(event) {
       const destinationListId = event.target.value;
-      dispatch(moveCardToList(ownProps.cardId, ownProps.listId, destinationListId));
+      dispatch(
+        moveCardToList(ownProps.cardId, ownProps.listId, destinationListId),
+      );
+    },
+  };
+};
 
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CardMove);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(CardMove);

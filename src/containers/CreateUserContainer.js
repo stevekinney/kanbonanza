@@ -4,7 +4,10 @@ import CreateUser from '../components/CreateUser';
 import { createUser } from '../actions/user';
 
 const mapDispatchToProps = {
-  createUser
+  createUser,
 };
 
-export default connect(null, mapDispatchToProps)(CreateUser);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(CreateUser);

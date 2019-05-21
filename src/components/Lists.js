@@ -3,17 +3,11 @@ import ListContainer from '../containers/ListContainer';
 
 import './Lists.scss';
 
-const Lists = ({
-  lists,
-  users,
-}) => {
+const Lists = ({ lists, users }) => {
   return (
     <section className="Lists">
       {lists.map(listId => (
-        <ListContainer
-          key={listId}
-          listId={listId}
-        />
+        <ListContainer key={listId} listId={listId} />
       ))}
     </section>
   );

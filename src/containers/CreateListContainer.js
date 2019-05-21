@@ -4,7 +4,10 @@ import CreateList from '../components/CreateList';
 import { createList } from '../actions/list';
 
 const mapDispatchToProps = {
-  createList
+  createList,
 };
 
-export default connect(null, mapDispatchToProps)(CreateList);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(CreateList);
